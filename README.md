@@ -10,4 +10,5 @@
 ### judge platform
 - [programmers](https://programmers.co.kr/learn/challenges)
 
-[solvedProblem](./solvedProblem.md) 
+#### solvedProblem
+- [레벨순정리](./solvedProblem.md)
