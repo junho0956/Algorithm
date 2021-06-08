@@ -3,7 +3,7 @@
 ``` javascript
 
     // default
-    IteratorObj.sort(compareFunction);
+    Array.prototype.sort(compareFunction);
 
     // String sorting
     stringArr.sort(a,b => {
