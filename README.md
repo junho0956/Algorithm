@@ -1,8 +1,7 @@
-# Algorithm with javascript
+# Algorithm
 
-- why use javascript?
-    - 프론트엔드를 공부하면서 가장 기본이 된 언어 javascript
-    - 개발 뿐만 아니라 알고리즘도 javascript를 통해 해결함으로써 언어의 깊이를 확장하고 싶어서 시작
+사용언어 : javascript, C++<br>
+언어를 결정하는 기준 : 문제를 보고 어떤 언어를 사용하는게 더 편할지 고민함, 왠만해서는 js로 해결
 
 - 전적
     - 2021 Software Maestro 코딩테스트 1차, 2차 all solve 합격
@@ -22,6 +21,8 @@
 - [sort](./Doc/sort.md)
 - [stack](./Doc/stack.js)
 - [queue](./Doc/queue.js)
+- [heap](./Doc/heap.js)
 
 ### judge platform
-- [Programmers](./solvedProblem.md)
+- [Programmers](./programmers.md)
+- [leetcode](./leetcode.md)
