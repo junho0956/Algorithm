@@ -2,6 +2,7 @@
 - [완주하지못한선수](./Programmers/완주하지못한선수.md)
 - [K번째 수](./Programmers/K번째수.md)
 - [로또의 최고 순위와 최저 순위](./Programmers/로또.md)(2021 Dev-Matching: 웹 백엔드 개발자)
+- [키패드 누르기](./Programmers/키패드누르기.md)(2020 카카오 인턴십)
 ##### level 2
 - [위장](./Programmers/위장.md)
 - [기능개발](./Programmers/기능개발.md)
@@ -19,6 +20,7 @@
 - [입국 심사](./Programmers/입국심사.md)
 - [다단계 칫솔 판매](./Programmers/다단계칫솔판매.md)
 - [카드 짝 맞추기](./Programmers/카드짝맞추기.md)
+- [보석 쇼핑](./Programmers/보석쇼핑.md)
 ##### level 4
 - [징검다리](./Programmers/징검다리.md)
 ##### level 5

@@ -1,4 +1,5 @@
 [Leetcode - Perfect Squares](https://leetcode.com/problems/perfect-squares/)
+*Leetcode Perfect Squares with javascript*
 
 - 문제접근
     - 문제의 square number는 제곱수를 뜻한다

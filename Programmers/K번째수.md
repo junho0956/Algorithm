@@ -1,4 +1,5 @@
 [프로그래머스-K번째수](https://programmers.co.kr/learn/courses/30/lessons/42748?language=javascript)
+*프로그래머스 K번째 수 with javascript*
 
 - 문제 접근
     - 문제에서 요구하는대로 slice를 통해 범위를 자르고 정렬해주면 되는 문제

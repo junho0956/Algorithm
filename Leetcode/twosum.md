@@ -1,4 +1,5 @@
 [LeetCode - Two sum](https://leetcode.com/problems/two-sum/submissions/)
+*LeetCode Two sum with javascript*
 
 - 문제 접근
     - target을 만들 수 있는 값의 쌍이 존재하는지 묻는 문제
