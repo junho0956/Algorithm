@@ -7,8 +7,8 @@
 1 1 3 3 5 3 4<br>
 
 ### 접근
-매 값을 추가할 때마다 정렬을 한다면 O(N*NlogN)<br>
-Max Heap, Min Heap 을 이용해서 O(N*logN)으로 효율적으로 해결가능<br>
+매 값을 추가할 때마다 정렬을 한다면 O(N^2logN)<br>
+Max Heap, Min Heap 을 이용해서 O(NlogN)으로 효율적으로 해결가능<br>
 
 ### 원리
 Max Heap, Min Heap 으로 중간값을 계산
@@ -20,4 +20,5 @@ Max Heap, Min Heap 으로 중간값을 계산
 
 ### 문제
 <a href="https://www.acmicpc.net/problem/1655" target="_blank">BOJ 1655 가운데를 말해요</a><br>
+<a href="https://www.acmicpc.net/problem/2696" target="_blank">BOJ 2696 중앙값 구하기</a><br>
 <a href="https://programmers.co.kr/learn/courses/30/lessons/81303" target="_blank">Programmers 2021 카카오 인턴십 - 표 편집</a><br>
