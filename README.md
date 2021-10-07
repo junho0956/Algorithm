@@ -16,7 +16,8 @@
 - 2021 Naver 신입사원 공채 코딩테스트 합격
 - 2021 Kakao 채용연계형 인턴십 코딩테스트 합격
 - 2021 네이버 부캠 all solve, 챌린지 과정 수료, 멤버십 불합격..😇
-- 2022 KAKAO blind 1차, 5/7(1~5) solve, 합격여부는 다음주<br>
+- 2022 KAKAO blind 1차, 5/7 solve, 합격<br>
+    해결못한문제(문제올라오면 풀어볼것)<br>
     6번: 2차원 누적합 / plane sweeping<br>
     7번: 경쟁dp, bitmasking
 
@@ -35,3 +36,7 @@
 
 ## Test & Contests 
 - <a href="./test_contest/제3회_류호석배_알고리즘_코딩테스트.md">제 3회 류호석배 알고리즘 코딩테스트</a>
+
+## CodeForces
+- nickname: jh0956
+- Codeforces Round #744 2021.9.28 / div3 / solve A,C,E / 10.07 B,D 해결 rating470 
