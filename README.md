@@ -16,9 +16,10 @@
 - 2021 Naver 신입사원 공채 코딩테스트 합격
 - 2021 Kakao 채용연계형 인턴십 코딩테스트 합격
 - 2021 네이버 부캠 all solve, 챌린지 과정 수료, 멤버십 불합격..😇
-- 2022 KAKAO blind 1차, 5/7(1~5) solve, 합격여부는 다음주<br>
+- 2022 KAKAO blind 1차, 5/7(1~5) solve, 합격<br>
     6번: 2차원 누적합 / plane sweeping<br>
     7번: 경쟁dp, bitmasking
+- 2021 NHN 신입 공채 Pre-Test 1차 (2020 2/3 solve) 10.23 예정
 
 ## 정리
 - [array](./Doc/array.md)
@@ -27,6 +28,7 @@
 - [queue](./Doc/queue.js)
 - [heap](./Doc/heap.js)
     - <a href="./Doc/medianInStream.md">median in stream</a>
+- [greedy](./Doc/greedy.md)
 
 ## judge platform
 - [Programmers](./programmers.md)
@@ -35,3 +37,4 @@
 
 ## Test & Contests 
 - <a href="./test_contest/제3회_류호석배_알고리즘_코딩테스트.md">제 3회 류호석배 알고리즘 코딩테스트</a>
+- <a href="./test_contest/weekly challenge.md">Programmers - Weekly Challenge</a>
