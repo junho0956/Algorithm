@@ -39,3 +39,7 @@
 - <a href="./test_contest/제3회_류호석배_알고리즘_코딩테스트.md">제 3회 류호석배 알고리즘 코딩테스트</a>
 - <a href="./test_contest/weekly challenge.md">Programmers - Weekly Challenge</a>
 - <a href="./test_contest/atcoder_224.md">Atcoder_224</a>
+
+## CodeForces
+- nickname: jh0956
+- Codeforces Round #744 2021.9.28 / div3 / solve A,C,E / 10.07 B,D 해결 rating470 
