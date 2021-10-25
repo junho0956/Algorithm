@@ -2,7 +2,8 @@
 > 문제가 업데이트되는 매주 문제 풀고 해설 업데이트하기
 **2, 4, 6, 7** Line 기출되면서 문제 없어짐
 
-### WEEK1
+### WEEK 1
+- 프로그래머스 위클리 챌린지 1주차
 - math
 - LEVEL 1
 - 문제에서 요구하는대로 횟수당 `price`를 계산해주고 `money`와 비교해주면 해결
@@ -16,162 +17,93 @@ function solution(price, money, count) {
 }
 ```
 
-### WEEK3
-- search, greedy
+### WEEK 3
+- 프로그래머스 위클리 챌린지 3주차
+- search, implementation
 - *어디서 봤나 했더니 올해 네이버 신입공채때 풀었던 4번문제였다*
 - 하.. 제출했더니 70점이 .. 다시 풀어봐야겠다.. (접근방식이 잘못되었다는 것까지는 확인!)
+- 정답처리 받고 코드를!
+
+### WEEK 11
+- 프로그래머스 위클리 챌린지 11주차
+- bfs, math
+- LEVEL 3
+- math: 좌표계산
+    - > 보통 이런 문제는 사각형의 범위를 괴랄하게 주기 때문에 좌표압축같은 추가 계산이 필요함
+    - 이 문제는 범위가 50이라서 그냥 사각형을 배열에 깔아놓고 탐색만해도 풀 수 있는 문제이다.
+    - 그런데 사각형을 50*50 범위내에 그대로 테두리만 구분해서 둔다고 가정해보자. 그럼 다음과 같은 문제가 발생할 수 있다.
+        - 테두리에 속하는 좌표 (a,b), (c,d) 가 있을 때 (a,b) 에서 (c,d) 로 거리1 차이난다고 가정해보자.
+        - 그런데 (a,b), (c,d)가 서로 다른 사각형에 속하는 테두리 좌표여서 (a,b) <-> (c,d) 간의 이동이 불가능하다면?
+        - 이걸 따로 처리해주지 않으면 탐색하면서 이동하게 되는 불상사가 발생해버린다.
+        - 물론 [(a,b), (c,d)], [(c,d), (a,b)] 이런식으로 Set, Map을 활용할수도 있지만 좌표를 2배 크게 사용한다면 문제가 쉽게 해결된다.
 
 ```js
+const arr = Array(51*2).fill().map(() => Array(51*2).fill(0));
+const visit = Array(51*2).fill().map(() => Array(51*2).fill(false));
 const my = [-1,1,0,0], mx = [0,0,1,-1];
-let N, board = [], answer = 0, puzzle, puzzleUsed; // puzzle은 Numbering에서 초기화
 
-function makeNewTable(){
-    return Array(N).fill().map(() => Array(N));
-}
-
-function turn(arr){
-    let idx = 0;
-    const newTable = makeNewTable();
-    for(let i = 0; i<N; i++) for(let j = 0; j<N; j++) newTable[i][j] = arr[idx++];
-    return newTable;
-}
-
-function turnTable(table){
-    const resultTable = [];
-    
-    let arr = [], arr2 = [], arr3 = [];
-    for(let i = N-1; i>=0; i--) for(let j = 0; j<N; j++) arr.push(table[j][i]);
-    for(let i = N-1; i>=0; i--) for(let j = N-1; j>=0; j--) arr2.push(table[i][j]);
-    for(let i = 0; i<N; i++) for(let j = N-1; j>=0; j--) arr3.push(table[j][i]);
-    
-    resultTable.push(turn(arr));
-    resultTable.push(turn(arr2));
-    resultTable.push(turn(arr3));
-    
-    return resultTable;
-}
-
-function getPuzzle(tables){
-    for(let k = 0; k<tables.length; k++){
-        for(let i = 0; i<N; i++){
-            for(let j = 0; j<N; j++){
-                if(tables[k][i][j]){
-                    const arr = [{y:i, x:j}];
-                    const puzzleColor = tables[k][i][j];
-                    const trace = [{y:0,x:0}];
-                    tables[k][i][j] = 0;
-                    while(arr.length){
-                        const {y, x} = arr.shift();
-                        
-                        for(let i = 0; i<4; i++){
-                            const yy = y+my[i];
-                            const xx = x+mx[i];
-                            if(yy<0||xx<0||yy>=N||xx>=N||tables[k][yy][xx]!=puzzleColor) continue;
-                            tables[k][yy][xx] = 0;
-                            trace.push({y:my[i], x:mx[i]});
-                            arr.push({y:yy, x:xx});
-                        }
-                    }
-                    puzzle[puzzleColor].push(trace);
+function solution(rectangle, characterX, characterY, itemX, itemY) {
+    rectangle.forEach(v => {
+        const fy = v[1]*2, fx = v[0]*2, sy = v[3]*2, sx = v[2]*2;
+        for(let i = fy; i<=sy; i++){
+            for(let j = fx; j<=sx; j++){
+                if(i == fy || i == sy || j == fx || j == sx){
+                    if(!arr[i][j]) arr[i][j] = -1; // out
+                    else if(arr[i][j] !== -1) arr[i][j] = 1; // in
+                } else {
+                    arr[i][j] = 1;
                 }
             }
         }
+    })
+
+    const Q = [{y:characterY*2, x:characterX*2, cnt:0}];
+    visit[characterY*2][characterX*2] = true;
+    while(Q.length){
+        const {y, x, cnt} = Q.shift();
+        if(y === itemY*2 && x === itemX*2){
+            return cnt/2;
+        }
+
+        for(let i = 0; i<4; i++){
+            const yy = y+my[i], xx = x+mx[i];
+            if(yy<1||xx<1||yy>50*2||xx>50*2||visit[yy][xx]||arr[yy][xx]!==-1) continue;
+            Q.push({y:yy, x:xx, cnt:cnt+1});
+            visit[yy][xx] = true;
+        }
     }
 }
+```
 
-function Numbering(table){
-    let num = 1;
-    for(let i = 0; i<N; i++){
-        for(let j = 0; j<N; j++){
-            if(table[i][j] == 1){
-                num++;
-                const arr = [{y:i, x:j}];
-                while(arr.length){
-                    let {y, x} = arr.shift();
-                    table[y][x] = num;
-                    for(let i = 0; i<4; i++){
-                        let yy = y+my[i];
-                        let xx = x+mx[i];
-                        if(yy<0||xx<0||yy>=N||xx>=N||table[yy][xx]!==1) continue;
-                        arr.push({y:yy, x:xx});
-                    }
-                }
-            }
-        }
+### WEEK 12
+- 프로그래머스 위클리 챌린지 12주차
+- dfs
+- LEVEL 2
+- 던전의 갯수가 8개이기 때문에 단순 탐색으로 해결가능
+```js
+const visit = Array(9).fill(false);
+
+function dfs(k, cnt, dun){
+    
+    if(k === 0) return cnt;
+    
+    let res = cnt;
+    
+    for(let i = 0; i<dun.length; i++){
+        if(visit[i]) continue;
+        if(dun[i][0] > k) continue;
+        
+        visit[i] = true;
+        res = Math.max(res, dfs(k-dun[i][1], cnt+1, dun));
+        visit[i] = false;
+        
     }
     
-    // puzzle 초기화
-    puzzle = Array(num+3).fill().map(() => Array());
-    puzzleUsed = Array(num+3).fill(false);
+    return res;
     
-    return table;
 }
 
-function solution(game_board, table) {
-    N = game_board.length;
-    
-    // game_board 에서 퍼즐꺼내기
-    for(let i = 0; i<N; i++){
-        for(let j = 0; j<N; j++){
-            if(game_board[i][j] == 0){
-                
-                const queue = [{y:i,x:j}];
-                game_board[i][j] = 1;
-                const trace = [{y:0,x:0}];
-                
-                while(queue.length){
-                    const {y, x} = queue.shift();
-                    
-                    for(let i = 0; i<4; i++){
-                        const yy = y+my[i];
-                        const xx = x+mx[i];
-                        if(yy<0||xx<0||yy>=N||xx>=N||game_board[yy][xx]) continue;
-                        game_board[yy][xx] = 1;
-                        queue.push({y:yy, x:xx});
-                        trace.push({y:my[i], x:mx[i]});
-                    }
-                }
-                board.push({trace, used: false});
-            }
-        }
-    }
-    // 퍼즐 중복을 막기 위해 번호 매겨주기
-    table = Numbering(table);
-    
-    // table 회전시킨 후, 회전시킨 테이블에서 퍼즐꺼내기
-    // puzzle[puzzleColor]
-    getPuzzle([table, ...turnTable(table)]);
-    
-    // 결국 크기에 맞는게 몆개가 있는지 파악하는 것
-    for(let i = 0; i<board.length; i++){
-        let finds = false;
-        for(let j = 0; j<puzzle.length; j++){
-            if(puzzle[j].length === 0) continue;
-            if(puzzleUsed[j]) continue;
-            if(board[i].trace.length !== puzzle[j][0].length) continue;
-            for(let k = 0; k<4; k++){
-                let ck = true;
-                for(let l = 0; l<puzzle[j][k].length; l++){
-                    let by = board[i].trace[l].y;
-                    let bx = board[i].trace[l].x;
-                    let py = puzzle[j][k][l].y;
-                    let px = puzzle[j][k][l].x;
-                    if(by !== py || bx !== px){
-                        ck = false;
-                        break;
-                    }
-                }
-                if(ck){
-                    answer += puzzle[j][k].length;
-                    puzzleUsed[j] = true;
-                    finds = true;
-                    break;
-                }
-            }
-            if(finds) break;
-        }
-    }
-    
-    return answer;
+function solution(k, dungeons) {
+    return dfs(k, 0, dungeons);
 }
 ```
