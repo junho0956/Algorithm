@@ -24,6 +24,67 @@ function solution(price, money, count) {
 - 하.. 제출했더니 70점이 .. 다시 풀어봐야겠다.. (접근방식이 잘못되었다는 것까지는 확인!)
 - 정답처리 받고 코드를!
 
+### WEEK 10
+- 프로그래머스 위클리 챌린지 10주차 - 교점에 별 만들기
+- search, implementation
+- 좌표가 -10만~10만까지 나옴에 유의
+- object 형태의 Set을 사용하기 위해 c++ 사용
+- y, x 의 min max 를 구해서 그 범위만큼 Set을 탐색하면서 `*`, `.` 을 넣어주면 된다.
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <set>
+using namespace std;
+#define INF 9876543210000
+typedef long long ll;
+typedef long double ld;
+typedef pair<ll, ll> pll;
+typedef pair<ld, ld> pld;
+
+vector<string> solution(vector<vector<int>> line) {
+    set<pll> star;
+    ll maxX = -INF, minX = INF, minY = INF, maxY = -INF;
+    for(int i = 0; i<line.size(); i++){
+        for(int j = 0; j<line.size(); j++){
+            if(i != j){
+                ll a,b,e,c,d,f;
+                a = line[i][0], b = line[i][1], e = line[i][2];
+                c = line[j][0], d = line[j][1], f = line[j][2];
+                if(a*d != c*b){
+                    if((b*f-e*d)%(a*d-b*c) != 0) continue;
+                    if((e*c-a*f)%(a*d-b*c) != 0) continue;
+                    ll x = (b*f-e*d)/(a*d-b*c);
+                    ll y = (e*c-a*f)/(a*d-b*c);
+                    star.insert({x,y});
+                        minX = min(minX, x);
+                        maxX = max(maxX, x);
+                        minY = min(minY, y);
+                        maxY = max(maxY, y);
+                }
+            }
+        }
+    }
+    
+    int ans = 0;
+    vector<string> answer;
+    for(ll i = maxY; i>=minY; i--){
+        string str = "";
+        for(ll j = minX; j<=maxX; j++){
+            if(star.find({j,i}) != star.end()) str += '*', ans++;
+            else str += '.';
+        }
+        answer.push_back(str);
+    }
+    
+    cout << ans;
+    
+    return answer;
+}
+```
+
+
 ### WEEK 11
 - 프로그래머스 위클리 챌린지 11주차
 - bfs, math

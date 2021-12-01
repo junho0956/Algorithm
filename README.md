@@ -19,7 +19,7 @@
 - 2022 KAKAO blind 1차, 5/7(1~5) solve, 합격<br>
     6번: 2차원 누적합 / plane sweeping<br>
     7번: 경쟁dp, bitmasking
-- 2021 NHN 신입 공채 Pre-Test 1차 (2020 2/3 solve), 3/3 solve.. 맞겠지?.. 답을 안알려줘!! 
+- 2021 NHN 신입 공채 Pre-Test 1차(3/3?) 합격
 
 ## 정리
 - [array](./Doc/array.md)
