@@ -24,6 +24,7 @@
 - [카드 짝 맞추기](./Programmers/카드짝맞추기.md)
 - [보석 쇼핑](./Programmers/보석쇼핑.md)
 - [표 편집](./Programmers/표편집.md)(2021 카카오 채용연계형 인턴십 - 상반기)
+- [N으로 표현](./Programmers/N으로표현.md)
 ##### level 4
 - [징검다리](./Programmers/징검다리.md)
 ##### level 5
