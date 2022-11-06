@@ -2,8 +2,7 @@
 
 사용언어 : javascript, C++<br>
 언어를 결정하는 기준<br>
-- 문제를 보고 어떤 언어를 사용하는게 더 편할지 고민함, 왠만해서는 js로 해결
-- Heap 같은 자료구조가 필요할 때는 STL 사용을 위해 C++을 선택
+- 문제를 보고 어떤 언어를 사용하는게 더 편할지 , 왠만해서는 js로 해결
 
 #### backjoon status
 [![solvedAc](http://mazassumnida.wtf/api/v2/generate_badge?boj=jh0956)](https://solved.ac/jh0956)
